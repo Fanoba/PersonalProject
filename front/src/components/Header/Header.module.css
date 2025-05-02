@@ -1,0 +1,55 @@
+.appBar {
+  background-color: var(--color-dark-text) !important;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.logo {
+  height: 100px;
+}
+
+.searchInput {
+  border-color: var(--color-primary) !important;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  min-width: 450px;
+  max-width: 700px;
+  color: var(--color-dark-text) !important;
+}
+
+.searchIcon {
+  color: var(--color-primary);
+}
+
+.searchInput:hover {
+  border-color: black;
+  transition-delay: 1ms;
+  transform: scale(1.05);
+}
+
+
+.addButton {
+  background-color: var(--color-primary) !important;
+  color: var(--color-dark-text) !important;
+  font-weight: bold;
+}
+
+.addButton:hover {
+  background-color: var(--color-secondary) !important;
+}
+.title {
+  color: var(--color-primary) !important;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.title:hover {
+  transform: scale(1.05);
+}

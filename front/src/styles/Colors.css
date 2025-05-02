@@ -13,9 +13,4 @@
     --color-white: #FFFFFF;
     --color-dark-text: #212121;
   }
-
-  body {
-    display: flex;
-    flex-direction: column;
-  }
   
