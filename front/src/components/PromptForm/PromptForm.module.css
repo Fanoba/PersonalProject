@@ -1,0 +1,48 @@
+.dialogTitle {
+    background-color: var(--color-primary);
+    color: var(--color-white) !important;
+    padding: 1.5rem 2rem !important;
+  }
+  
+  .dialogContent {
+    padding: 2rem !important;
+  }
+  
+  .input {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .input label {
+    color: var(--color-dark) !important;
+  }
+  
+  .input .MuiOutlinedInput-root {
+    border-radius: 8px !important;
+  }
+  
+  .dialogActions {
+    padding: 1rem 2rem !important;
+    border-top: 1px solid #eee;
+  }
+
+  .editButton:hover {
+    color: var(--color-contrast4) !important;
+    background-color: rgba(255, 193, 7, 0.1) !important;
+  }
+  
+.cancelButton {
+    color: black !important;
+  }
+  
+.cancelButton:hover {
+    background-color: var(--color-secondary) !important;
+  }
+  
+.saveButton {
+    color: black !important;
+  }
+  
+.saveButton:hover {
+    background-color: var(--color-secondary) !important;
+  }
+  
