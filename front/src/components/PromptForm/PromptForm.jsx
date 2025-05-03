@@ -21,38 +21,37 @@ function PromptForm({ open, onClose, onSubmit, initialData }) {
 
   const handleSubmit = async () => {
     setLoading(true);
-    setError(null);
     
     try {
       const response = await fetch('https://personalproject-d7on.onrender.com/prompt', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
+        mode: 'cors',  // <-- Asegúrate de incluir esto
         body: JSON.stringify({
           titulo: title,
           description,
           text
         })
       });
-
+  
       if (!response.ok) {
-        throw new Error('Error al guardar el prompt');
+        throw new Error(await response.text());
       }
-
+  
       const data = await response.json();
-      onSubmit(data); // Llama a la función del padre para actualizar el estado
+      onSubmit(data);
       setSuccess(true);
-      setTitle('');
-      setDescription('');
-      setText('');
-      
+  
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
   };
+    
 
   return (
     <>
