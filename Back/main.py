@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from motor.motor_asyncio import AsyncIOMotorClient
 from modelPrompt import Prompt
+from fastapi.middleware.cors import CORSMiddleware
 from beanie import init_beanie,PydanticObjectId
 import os
 from bson.errors import InvalidId  # En lugar de pymongo.errors
@@ -11,6 +12,13 @@ load_dotenv()
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite todos los orígenes (ajusta en producción)
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos los métodos (GET, POST, OPTIONS, etc.)
+    allow_headers=["*"],
+)
 # Configuración de conexión
 MONGODB_URI = os.getenv("MONGODB_ATLAS_URI")
 DB_NAME = "Promptwise"
