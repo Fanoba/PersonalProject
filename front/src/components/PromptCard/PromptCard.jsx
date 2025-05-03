@@ -8,7 +8,7 @@ import {
   IconButton,
   TextField
 } from '@mui/material';
-import { Edit, ContentCopy, Delete } from '@mui/icons-material';
+import { ContentCopy, Delete } from '@mui/icons-material';
 import styles from './PromptCard.module.css';
 
 function PromptCard({ prompt, onEdit, onDelete }) {
@@ -50,9 +50,6 @@ function PromptCard({ prompt, onEdit, onDelete }) {
           {copied ? 'Copiado!' : 'Copiar'}
         </Button>
         <div>
-          <IconButton aria-label="edit" onClick={onEdit} className={styles.editButton}>
-            <Edit />
-          </IconButton>
           <IconButton aria-label="delete" onClick={onDelete} className={styles.deleteButton}>
             <Delete />
           </IconButton>
