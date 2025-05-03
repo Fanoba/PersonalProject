@@ -8,19 +8,30 @@ import PromptStructureModal from '../PromptStructureModal/PromptStructureModal';
 
 function Header({ onAdd, onSearch }) {
   const [openInfo, setOpenInfo] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchInput(value);
+    onSearch(value); // Envía el término de búsqueda al componente padre
+  };
+
   return (
     <AppBar position="static" className={styles.appBar}>
       <Toolbar className={styles.toolbar}>
         <img src="img/LogoFinal.png" alt="Logo" className={styles.logo} />
-        <Button className={styles.title} variant="text" color="primary" onClick={() => setOpenInfo(true)}>
+        <Button className={styles.title} variant="text" onClick={() => setOpenInfo(true)}>
           ¿Cómo redactar un buen prompt?
         </Button>
-<PromptStructureModal open={openInfo} onClose={() => setOpenInfo(false)} />
+        
+        <PromptStructureModal open={openInfo} onClose={() => setOpenInfo(false)} />
+
         <TextField
           variant="outlined"
           placeholder="Buscar prompt..."
           size="small"
-          onChange={(e) => onSearch(e.target.value)}
+          value={searchInput}
+          onChange={handleSearchChange}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -40,7 +51,6 @@ function Header({ onAdd, onSearch }) {
         >
           Nuevo Prompt
         </Button>
-        
       </Toolbar>
     </AppBar>
   );
