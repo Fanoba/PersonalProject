@@ -7,10 +7,22 @@ front/.pnp
 
 # testing
 front//coverage
+#.env de Back
+Back/.env
 
+#Cache
+Back/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
 # production
 front//build
+#Librerias
+Back/Lib
 
+#Scripts
+Back/Scripts
 # misc
 .DS_Store
 .env.local
