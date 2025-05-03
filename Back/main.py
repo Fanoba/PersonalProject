@@ -17,10 +17,14 @@ DB_NAME = "Promptwise"
 
 @app.on_event("startup")
 async def startup_db_client():
-    app.mongodb_client = AsyncIOMotorClient(MONGODB_URI)
+    app.mongodb_client = AsyncIOMotorClient(
+        MONGODB_URI,
+        tls=True,
+        tlsAllowInvalidCertificates=True  # Solo para desarrollo!
+    )
     await init_beanie(
         database=app.mongodb_client[DB_NAME],
-        document_models=[Prompt]  # <-- Registra tu modelo aquí
+        document_models=[Prompt]
     )
 
 @app.on_event("shutdown")
